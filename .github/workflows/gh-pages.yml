@@ -6,26 +6,30 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          submodules: true # PaperMod 테마가 submodule일 경우 필요
+          submodules: true
           fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.124.1"
+          hugo-version: "latest"
           extended: true
 
       - name: Build site
-        run: hugo --minify
+        env:
+          HUGO_CACHEDIR: /tmp/hugo_cache
+        run: |
+          hugo --minify --cleanDestinationDir
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
