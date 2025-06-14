@@ -1,0 +1,29 @@
+baseURL = "https://noke811.github.io/RopeNet/"
+languageCode = "ko"
+title = "로프넷"
+theme = "PaperMod"
+
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+
+[[menu.main]]
+name = "에이전트"
+url = "/categories/agent"
+weight = 1
+
+[[menu.main]]
+name = "상시 이벤트"
+url = "/categories/event"
+weight = 2
+
+[[menu.main]]
+name = "업적"
+url = "/categories/achievements"
+weight = 3
+
+[[menu.main]]
+name = "호감도"
+url = "/categories/likeability"
+weight = 4
